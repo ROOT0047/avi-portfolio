@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#05070b">
+<meta name="description" content="Portfolio of Avi Vishwakarma, a multidisciplinary technology professional specializing in frontend and backend development, network engineering, CCTV infrastructure, security systems and technology research.">
+<meta property="og:title" content="Avi Vishwakarma — Technology Portfolio">
+<meta property="og:description" content="Software, infrastructure, security systems and technology research.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/avi_pro.jpg">
+<title>Avi Vishwakarma — Full-Stack Developer | Network Engineer | CCTV Specialist</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+:root{--bg:#05070b;--panel:#0a1018;--panel2:#0d1520;--text:#f4f7fb;--muted:#8290a4;--dim:#566477;--line:rgba(148,163,184,.15);--accent:#78a9ff;--green:#5ee28b}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;overflow-x:hidden}a{color:inherit;text-decoration:none}button,input,textarea{font:inherit}
+body:before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(circle at 72% 8%,rgba(54,92,160,.12),transparent 30%),radial-gradient(circle at 10% 55%,rgba(30,60,110,.08),transparent 28%)}
+body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:99;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+::-webkit-scrollbar{width:7px}::-webkit-scrollbar-track{background:#05070b}::-webkit-scrollbar-thumb{background:#202b3a;border-radius:8px}
+.progress{position:fixed;top:0;left:0;width:100%;height:2px;background:var(--accent);transform-origin:left;transform:scaleX(0);z-index:200}
+.nav{position:fixed;top:0;left:0;right:0;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;background:linear-gradient(180deg,rgba(5,7,11,.9),rgba(5,7,11,.2));backdrop-filter:blur(16px);z-index:100;border-bottom:1px solid rgba(255,255,255,.03)}
+.brand{display:flex;align-items:center;gap:11px;font:600 10px 'JetBrains Mono';letter-spacing:.08em}.brand-mark{width:34px;height:34px;display:grid;place-items:center;border:1px solid var(--line);border-radius:8px;color:var(--accent);background:rgba(255,255,255,.025)}
+.navlinks{display:flex;align-items:center;gap:20px}.navlinks a{font:500 9px 'JetBrains Mono';color:#7f8da1;transition:.25s}.navlinks a:hover{color:#fff}.nav-cta{padding:10px 13px;border:1px solid var(--line);border-radius:6px;background:rgba(255,255,255,.04)!important;color:#dce6f5!important}
+.menu{display:none;background:none;border:0;padding:5px}.menu i{display:block;width:22px;height:1px;background:#fff;margin:5px}
+.section{position:relative;max-width:1600px;margin:auto;padding:130px 7vw}.hero{min-height:100svh;padding-top:140px;display:flex;align-items:center;overflow:hidden}.grid{position:absolute;inset:0;opacity:.34;background-image:linear-gradient(rgba(100,130,180,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(100,130,180,.08) 1px,transparent 1px);background-size:70px 70px;mask-image:linear-gradient(#000,transparent 88%)}.hero-copy{width:54%;position:relative;z-index:3}.eyebrow,.kicker{font:600 9px 'JetBrains Mono';letter-spacing:.16em;color:#8c9bb0}.status{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 13px var(--green);margin-right:7px}
+.hero h1{font-size:clamp(47px,6.1vw,92px);line-height:.97;letter-spacing:-.06em;margin:21px 0}.hero h1 em{font-style:normal;color:var(--accent)}.hero p{max-width:670px;color:#96a3b5;font-size:15px;line-height:1.8}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:30px}.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 17px;border:1px solid var(--line);border-radius:6px;background:rgba(255,255,255,.035);font:600 9px 'JetBrains Mono';transition:.3s}.btn:hover{transform:translateY(-2px);border-color:rgba(120,169,255,.5);background:rgba(120,169,255,.07)}.btn.primary{background:#dce9ff;color:#06101f;border-color:#dce9ff}.metrics{display:flex;gap:25px;margin-top:42px;color:#637186;font:9px 'JetBrains Mono';text-transform:uppercase}.metrics b{color:#dbe5f4;font-size:14px;margin-right:5px}.scene{position:absolute;right:-3%;top:100px;width:59%;height:76%;z-index:1}.scene canvas{width:100%!important;height:100%!important}.scroll{position:absolute;bottom:30px;left:7vw;display:flex;align-items:center;gap:12px;color:#566477;font:8px 'JetBrains Mono';letter-spacing:.15em}.scroll:after{content:"";width:50px;height:1px;background:var(--line)}
+.heading{max-width:780px;margin-bottom:52px}.heading h2{font-size:clamp(38px,5vw,69px);letter-spacing:-.055em;line-height:1;margin:12px 0 17px}.heading p{color:#8491a4;line-height:1.8;max-width:700px}
+.capabilities{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.cap{min-height:175px;padding:25px;border:1px solid var(--line);background:linear-gradient(145deg,rgba(255,255,255,.025),transparent);display:grid;grid-template-columns:45px 1fr 25px;gap:10px;transition:.35s}.cap:hover{transform:translateY(-4px);border-color:rgba(120,169,255,.35)}.cap-num{font:600 9px 'JetBrains Mono';color:var(--accent)}.cap h3,.service h3{font-size:13px;margin:0 0 11px}.cap p,.service p{margin:0;color:#7e8b9e;font-size:12px;line-height:1.7}.arrow{color:#65748a;font-size:17px}
+.skills{overflow:hidden}.skill-layout{display:grid;grid-template-columns:44% 56%;gap:60px;align-items:center}.orbit-box{height:570px;position:relative;display:grid;place-items:center}.core{width:125px;height:125px;border:1px solid rgba(120,169,255,.45);border-radius:50%;display:grid;place-items:center;text-align:center;background:radial-gradient(circle,rgba(120,169,255,.13),rgba(8,12,20,.95));box-shadow:0 0 90px rgba(120,169,255,.1);font:700 20px 'JetBrains Mono';z-index:2}.core small{font-size:8px;color:#6d7c91}.orbit{position:absolute;border:1px solid rgba(120,169,255,.13);border-radius:50%;animation:spin 24s linear infinite}.orbit.a{width:380px;height:380px}.orbit.b{width:500px;height:500px;animation-direction:reverse;animation-duration:34s}@keyframes spin{to{transform:rotate(360deg)}}.node{position:absolute;padding:7px 9px;border:1px solid var(--line);background:#080d15;border-radius:5px;color:#8c9bb0;font:8px 'JetBrains Mono';cursor:pointer;transition:.25s}.node:hover{border-color:var(--accent);color:#fff;box-shadow:0 0 25px rgba(120,169,255,.12)}.n1{top:12%;left:47%}.n2{top:25%;right:4%}.n3{bottom:27%;right:7%}.n4{bottom:12%;left:45%}.n5{bottom:26%;left:4%}.n6{top:25%;left:4%}
+.group{padding:18px 0;border-top:1px solid var(--line)}.group-head{display:flex;gap:13px;align-items:center}.group-head span{color:var(--accent);font:9px 'JetBrains Mono'}.group-head h3{font-size:13px;margin:0}.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}.tags button{border:1px solid var(--line);background:transparent;color:#718096;padding:7px 8px;border-radius:5px;font:8px 'JetBrains Mono';cursor:pointer}.tags button:hover,.tags button:focus{color:#fff;border-color:rgba(120,169,255,.5);outline:none}.inspector{margin-top:18px;padding:17px;border:1px solid rgba(120,169,255,.2);background:rgba(120,169,255,.035)}.inspector span{font:8px 'JetBrains Mono';color:var(--accent)}.inspector p{margin:8px 0 0;color:#9aa8ba;font-size:12px;line-height:1.6}
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.service{min-height:250px;padding:25px;border:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(145deg,rgba(255,255,255,.025),transparent);transition:.35s;transform-style:preserve-3d}.service:hover{transform:perspective(800px) rotateX(2deg) rotateY(-2deg) translateY(-5px);border-color:rgba(120,169,255,.4)}.service-num{font:9px 'JetBrains Mono';color:var(--accent)}
+.projects{max-width:none;background:linear-gradient(180deg,transparent,rgba(18,29,49,.12),transparent)}.rail{display:flex;gap:15px;overflow-x:auto;padding-bottom:20px;scroll-snap-type:x mandatory}.project{min-width:min(75vw,760px);min-height:420px;display:grid;grid-template-columns:1.1fr .9fr;border:1px solid var(--line);background:#080d14;scroll-snap-align:start;transition:.35s}.project:hover{transform:translateY(-5px);border-color:rgba(120,169,255,.38)}.visual{position:relative;overflow:hidden;border-right:1px solid var(--line);background:radial-gradient(circle at 50% 45%,rgba(55,95,160,.18),transparent 45%),repeating-linear-gradient(0deg,rgba(120,169,255,.04) 0 1px,transparent 1px 10px)}.visual .id{position:absolute;top:18px;left:18px;color:var(--accent);font:9px 'JetBrains Mono'}.scan{position:absolute;left:0;right:0;height:1px;background:rgba(120,169,255,.45);animation:scan 5s linear infinite}@keyframes scan{from{top:0}to{top:100%}}.placeholder{position:absolute;inset:0;display:grid;place-content:center;text-align:center;gap:8px}.placeholder b{font-size:34px;letter-spacing:-.05em}.placeholder small{font:8px 'JetBrains Mono';color:#718097}.project-info{padding:34px}.project-info h3{font-size:29px;letter-spacing:-.04em;margin:12px 0}.project-info p{color:#8390a2;font-size:12px;line-height:1.7}.tech{display:flex;flex-wrap:wrap;gap:6px;margin-top:20px}.tech span{padding:6px 8px;border:1px solid var(--line);color:#748299;font:8px 'JetBrains Mono'}.project-actions{display:flex;gap:13px;margin-top:32px;color:#91a3bd;font:8px 'JetBrains Mono'}
+.infrastructure{background:linear-gradient(180deg,rgba(8,13,22,.7),rgba(5,7,11,.2))}.infra{display:grid;grid-template-columns:1.5fr .7fr;gap:50px;align-items:center}.network{min-height:590px;border:1px solid var(--line);padding:35px;background:radial-gradient(circle at 50% 20%,rgba(50,90,160,.12),transparent 42%);position:relative}.netnode{width:170px;margin:auto;padding:15px;text-align:center;border:1px solid rgba(120,169,255,.3);background:#080e17;font:600 9px 'JetBrains Mono'}.netline{height:55px;width:1px;background:linear-gradient(var(--accent),rgba(120,169,255,.05));margin:auto}.branches{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px}.branch{text-align:center;border-top:1px solid rgba(120,169,255,.2);padding-top:15px}.branch span,.branch b{display:block;padding:11px;border:1px solid var(--line);background:#090f18;font:8px 'JetBrains Mono'}.branch i{display:block;height:40px;width:1px;background:rgba(120,169,255,.2);margin:auto}.branch b{color:#6e7e94;font-weight:400}.packet{position:absolute;width:5px;height:5px;border-radius:50%;background:var(--accent);box-shadow:0 0 15px var(--accent);left:50%;animation:packet 4s linear infinite}.p1{top:120px}.p2{top:250px;animation-delay:1.3s}.p3{top:390px;animation-delay:2.4s}@keyframes packet{0%,100%{opacity:0;transform:translate(-50%,0)}15%,85%{opacity:1}95%{opacity:0;transform:translate(-50%,70px)}}.log{border-left:1px solid var(--line);padding-left:25px}.log>div{display:grid;grid-template-columns:30px 1fr;gap:10px;padding:15px 0;border-bottom:1px solid var(--line);font:9px 'JetBrains Mono'}.log b{color:var(--accent)}.log em{grid-column:2;color:#5e6c80;font-size:8px;font-style:normal}
+.research-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.research-card{min-height:250px;border:1px solid var(--line);padding:23px;position:relative;background:linear-gradient(145deg,rgba(255,255,255,.025),transparent);transition:.3s}.research-card:hover{transform:translateY(-4px);border-color:rgba(120,169,255,.35)}.research-card>span{font:8px 'JetBrains Mono';color:var(--accent)}.research-card h3{margin:35px 0 22px;font-size:19px}.research-card small{font:7px 'JetBrains Mono';color:#617087}.research-card p{color:#7f8c9f;font-size:11px;line-height:1.6}.research-foot{position:absolute;bottom:18px;left:23px;right:23px;display:flex;justify-content:space-between;font:7px 'JetBrains Mono';color:#65748a}
+.timeline{margin-left:7vw;border-left:1px solid rgba(120,169,255,.2);padding-left:50px}.entry{position:relative;margin-bottom:35px}.entry:before{content:"";position:absolute;left:-56px;top:7px;width:9px;height:9px;border:1px solid var(--accent);border-radius:50%;background:var(--bg)}.year{margin-bottom:8px;color:#647389;font:9px 'JetBrains Mono'}.entry-card{padding:24px;border:1px solid var(--line);background:#080d14}.entry-card>span{color:var(--accent);font:8px 'JetBrains Mono'}.entry-card h3{margin:8px 0 13px}.entry-card p,.entry-card small{color:#7e8b9e;font-size:11px;line-height:1.7}.cv-panel{padding:52px;border:1px solid rgba(120,169,255,.2);background:radial-gradient(circle at 75% 40%,rgba(120,169,255,.1),transparent 35%),#080d14;display:flex;justify-content:space-between;align-items:end}.cv-panel h2{font-size:clamp(38px,5vw,68px);letter-spacing:-.05em;margin:12px 0}.cv-panel p{color:#68768b;font:8px 'JetBrains Mono'}
+.contact-grid{display:grid;grid-template-columns:1fr .8fr;gap:50px}.form{display:grid;gap:13px}.form label{display:grid;gap:7px;color:#78869a;font:8px 'JetBrains Mono'}.form input,.form textarea{border:1px solid var(--line);background:#080d14;color:#fff;padding:13px;border-radius:5px;outline:none}.form input:focus,.form textarea:focus{border-color:rgba(120,169,255,.55);box-shadow:0 0 0 3px rgba(120,169,255,.06)}.terminal{border:1px solid var(--line);background:#05080d}.termbar{height:32px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:5px;padding:0 10px}.termbar i{width:6px;height:6px;border-radius:50%;background:#293545}.termbar span{margin-left:6px;color:#5f6d7e;font:7px 'JetBrains Mono'}.terminal pre{white-space:pre-wrap;margin:0;padding:20px;color:#8797ad;font:9px/2 'JetBrains Mono'}.socials{margin-top:12px}.socials a{display:flex;justify-content:space-between;padding:13px 0;border-bottom:1px solid var(--line);color:#7f8da1;font:8px 'JetBrains Mono'}.socials a:hover{color:#fff}.socials b{font-weight:400;color:var(--accent)}
+footer{max-width:1600px;margin:auto;padding:40px 7vw;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;color:#566477;font:8px/1.8 'JetBrains Mono'}footer strong{color:#dce4f0;letter-spacing:.12em}footer div:first-child{display:grid}
+.reveal{opacity:0;transform:translateY(25px);transition:opacity .7s ease,transform .7s cubic-bezier(.16,1,.3,1)}.reveal.visible{opacity:1;transform:none}
+
+/* Portfolio refresh: real portrait, live GitHub projects, and richer project previews */
+.profile-portrait{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;z-index:4;pointer-events:none}
+.profile-portrait:before{content:"";position:absolute;width:min(39vw,460px);aspect-ratio:1;border:1px solid rgba(120,169,255,.24);border-radius:50%;box-shadow:0 0 100px rgba(64,117,220,.13),inset 0 0 70px rgba(64,117,220,.06)}
+.profile-portrait img{position:relative;width:min(33vw,385px);height:min(47vw,470px);object-fit:cover;object-position:center 28%;border-radius:48% 48% 22px 22px;border:1px solid rgba(160,192,255,.45);box-shadow:0 28px 90px rgba(0,0,0,.48),0 0 45px rgba(90,140,255,.13);mask-image:linear-gradient(#000 78%,transparent 100%)}
+.portrait-label{position:absolute;bottom:8%;left:50%;transform:translateX(-50%);white-space:nowrap;padding:12px 16px;border:1px solid rgba(148,163,184,.2);background:rgba(5,9,16,.86);backdrop-filter:blur(14px);font:9px 'JetBrains Mono';letter-spacing:.12em;color:#e5edfa}
+.portrait-label small{display:block;margin:6px 0 0 14px;color:#7f90a9;font-size:8px}
+.project-toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:0 0 22px}
+.project-search{min-width:min(100%,300px);padding:12px 14px;border:1px solid var(--line);border-radius:7px;background:#080d14;color:#fff;outline:none}
+.project-search:focus{border-color:rgba(120,169,255,.6)}
+.project-filters{display:flex;gap:7px;flex-wrap:wrap}
+.project-filters button{padding:9px 12px;border:1px solid var(--line);border-radius:6px;background:transparent;color:#8290a4;font:9px 'JetBrains Mono';cursor:pointer}
+.project-filters button.active,.project-filters button:hover{background:rgba(120,169,255,.12);border-color:rgba(120,169,255,.4);color:#eaf1ff}
+.project-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.repo-card{min-width:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:linear-gradient(150deg,#0b111b,#070b11);transition:transform .25s,border-color .25s}
+.repo-card:hover{transform:translateY(-5px);border-color:rgba(120,169,255,.48)}
+.repo-preview{height:185px;position:relative;overflow:hidden;background:radial-gradient(circle at 50% 40%,rgba(73,119,205,.28),transparent 55%),linear-gradient(135deg,#111d30,#080d15);border-bottom:1px solid var(--line)}
+.repo-preview img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .45s;opacity:.92}
+.repo-card:hover .repo-preview img{transform:scale(1.04)}
+.repo-preview:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(5,7,11,.42));pointer-events:none}
+.repo-preview-fallback{position:absolute;inset:0;display:grid;place-content:center;text-align:center;padding:18px;background:radial-gradient(circle at 50% 50%,rgba(120,169,255,.2),transparent 45%),repeating-linear-gradient(0deg,rgba(120,169,255,.05) 0 1px,transparent 1px 12px)}
+.repo-preview-fallback b{font-size:clamp(18px,2vw,30px);letter-spacing:-.05em;overflow-wrap:anywhere}
+.repo-preview-fallback small{font:9px 'JetBrains Mono';color:#91a6c7;margin-top:8px}
+.repo-body{padding:20px}
+.repo-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.repo-top h3{font-size:17px;line-height:1.35;margin:0;overflow-wrap:anywhere}
+.repo-icon{color:var(--accent);font-size:17px}
+.repo-description{min-height:58px;color:#8997aa;font-size:12px;line-height:1.65;margin:12px 0}
+.repo-meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap;color:#7c8aa0;font:9px 'JetBrains Mono'}
+.repo-language:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent);margin-right:6px}
+.repo-actions{display:flex;gap:14px;margin-top:18px;padding-top:14px;border-top:1px solid var(--line);font:9px 'JetBrains Mono';color:#b4c4dc}
+.repo-actions a:hover{color:#fff}
+.repo-state{grid-column:1/-1;padding:35px;border:1px dashed var(--line);text-align:center;color:#8a98ac;line-height:1.7}
+.repo-state a{color:var(--accent);text-decoration:underline}
+.project-count{color:#7e8ca1;font:9px 'JetBrains Mono'}
+@media(max-width:950px){.project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.profile-portrait img{width:min(39vw,340px);height:min(54vw,420px)}}
+@media(max-width:700px){.profile-portrait{inset:auto 0 0;height:58%;opacity:.82}.profile-portrait:before{width:70vw}.profile-portrait img{width:min(58vw,270px);height:min(72vw,300px)}.portrait-label{bottom:0;font-size:8px}.project-grid{grid-template-columns:1fr}.repo-preview{height:205px}.project-toolbar{align-items:stretch}.project-search{width:100%}}
+
+@media(max-width:1050px){.navlinks{gap:11px}.navlinks a{font-size:7px}.hero-copy{width:68%}.scene{width:70%;opacity:.55}.skill-layout,.infra,.contact-grid{grid-template-columns:1fr}.services{grid-template-columns:repeat(2,1fr)}.research-grid{grid-template-columns:repeat(2,1fr)}.timeline{margin-left:10px}}
+@media(max-width:700px){.nav{height:64px;padding:0 5vw}.brand b{display:none}.menu{display:block}.navlinks{display:none;position:absolute;top:64px;left:0;right:0;padding:18px 5vw;background:rgba(5,7,11,.98);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch}.navlinks.open{display:flex}.navlinks a{padding:9px;font-size:8px}.hero{padding-top:115px;display:block}.hero-copy{width:100%}.hero h1{font-size:clamp(44px,13vw,68px)}.hero p{font-size:13px}.scene{top:105px;right:-30%;width:125%;height:65%;opacity:.32}.metrics{flex-wrap:wrap;gap:12px}.section{padding:90px 5vw}.capabilities,.services,.research-grid{grid-template-columns:1fr}.skill-layout{gap:15px}.orbit-box{height:350px}.orbit.a{width:270px;height:270px}.orbit.b{width:340px;height:340px}.project{min-width:90vw;grid-template-columns:1fr}.visual{min-height:250px;border-right:0;border-bottom:1px solid var(--line)}.network{padding:25px;min-height:510px}.branches{grid-template-columns:1fr}.branch{display:grid;grid-template-columns:1fr 1fr;align-items:center}.branch i{display:none}.log{border-left:0;border-top:1px solid var(--line);padding:25px 0 0}.cv-panel{display:block;padding:30px}.cv-panel .btn{margin-top:22px}.contact-grid{gap:30px}.hero .actions .btn{flex:1;justify-content:center}.scroll{display:none}footer{display:block}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<nav class="nav">
+<a class="brand" href="#home"><span class="brand-mark">AV</span><b>AVI / VISHWAKARMA</b></a>
+<button class="menu" id="menu" aria-label="Toggle navigation" aria-expanded="false"><i></i><i></i><i></i></button>
+<div class="navlinks" id="navlinks">
+<a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#services">Services</a><a href="#projects">Projects</a><a href="#infrastructure">Infrastructure</a><a href="#research">Research</a><a href="#experience">Experience</a><a href="#cv">CV</a><a href="#contact">Contact</a><a class="nav-cta" href="#cv">Download CV</a>
+</div>
+</nav>
+
+<main>
+<section class="section hero" id="home">
+<div class="grid"></div>
+<div class="hero-copy">
+<div class="eyebrow"><span class="status"></span>FULL-STACK DEVELOPER / NETWORK ENGINEER / SECURITY SYSTEMS</div>
+<h1>I build digital products <em>&</em> connected systems.</h1>
+<p>I’m Avi — an aspiring software builder exploring web development, Android, AI and APIs, alongside networking and CCTV infrastructure. I enjoy turning ideas into useful, reliable systems.</p>
+<div class="actions"><a class="btn primary" href="#projects">Explore My Work ↗</a><a class="btn" href="#cv">Download CV</a><a class="btn" href="#contact">Contact Me</a></div>
+<div class="metrics"><span><b>05</b> disciplines</span><span><b>∞</b> curiosity</span><span><b>01</b> systems mindset</span></div>
+</div>
+<div class="scene" id="scene"><div class="profile-portrait"><img src="assets/avi_pro.jpg" alt="Portrait of Avi Vishwakarma"><div class="portrait-label"><span class="status"></span> AVI VISHWAKARMA <small>DEVELOPER · BUILDER</small></div></div></div>
+<div class="scroll">SCROLL TO EXPLORE</div>
+</section>
+
+<section class="section" id="about">
+<div class="heading reveal"><span class="kicker">01 / PROFILE</span><h2>Engineer. Developer. Researcher.</h2><p>I work across software development, networking, security infrastructure and technology research. My work combines programming with real-world system deployment, troubleshooting, optimization and technical problem solving.</p></div>
+<div class="capabilities">
+<div class="cap reveal"><span class="cap-num">01</span><div><h3>FRONTEND DEVELOPMENT</h3><p>Modern responsive interfaces, interactive experiences and web applications.</p></div><span class="arrow">↗</span></div>
+<div class="cap reveal"><span class="cap-num">02</span><div><h3>BACKEND DEVELOPMENT</h3><p>APIs, databases, authentication, server-side systems and integrations.</p></div><span class="arrow">↗</span></div>
+<div class="cap reveal"><span class="cap-num">03</span><div><h3>NETWORK ENGINEERING</h3><p>Network configuration, troubleshooting, infrastructure planning and optimization.</p></div><span class="arrow">↗</span></div>
+<div class="cap reveal"><span class="cap-num">04</span><div><h3>CCTV & SECURITY SYSTEMS</h3><p>Camera installation, configuration, networking, monitoring and surveillance system management.</p></div><span class="arrow">↗</span></div>
+<div class="cap reveal"><span class="cap-num">05</span><div><h3>RESEARCH & TECHNOLOGY</h3><p>Technical research, experimentation, system analysis and exploration of emerging technologies.</p></div><span class="arrow">↗</span></div>
+</div>
+</section>
+
+<section class="section skills" id="skills">
+<div class="heading reveal"><span class="kicker">02 / SKILL MATRIX</span><h2>A System of Skills.</h2><p>Explore the technical layers behind the work. Hover or focus a skill for a concise engineering explanation.</p></div>
+<div class="skill-layout">
+<div class="orbit-box">
+<div class="orbit a"></div><div class="orbit b"></div><div class="core">AV<br><small>SYS</small></div>
+<button class="node n1" data-skill="React">React</button><button class="node n2" data-skill="Node.js">Node.js</button><button class="node n3" data-skill="Routing">Routing</button><button class="node n4" data-skill="IP Cameras">IP Cameras</button><button class="node n5" data-skill="Three.js">Three.js</button><button class="node n6" data-skill="Network Security">Network Security</button>
+</div>
+<div>
+<div class="group"><div class="group-head"><span>FE</span><h3>Frontend</h3></div><div class="tags">
+<button data-skill="HTML">HTML</button><button data-skill="CSS">CSS</button><button data-skill="JavaScript">JavaScript</button><button data-skill="TypeScript">TypeScript</button><button data-skill="React">React</button><button data-skill="Next.js">Next.js</button><button data-skill="Responsive Design">Responsive Design</button><button data-skill="UI/UX">UI/UX</button><button data-skill="Tailwind CSS">Tailwind CSS</button><button data-skill="Three.js">Three.js</button><button data-skill="React Three Fiber">React Three Fiber</button><button data-skill="GSAP">GSAP</button>
+</div></div>
+<div class="group"><div class="group-head"><span>BE</span><h3>Backend</h3></div><div class="tags"><button data-skill="Node.js">Node.js</button><button data-skill="REST APIs">REST APIs</button><button data-skill="Authentication">Authentication</button><button data-skill="Databases">Databases</button><button data-skill="API Integration">API Integration</button><button data-skill="Server Architecture">Server Architecture</button><button data-skill="Backend Security">Backend Security</button><button data-skill="Cloud Integration">Cloud Integration</button></div></div>
+<div class="group"><div class="group-head"><span>NET</span><h3>Networking</h3></div><div class="tags"><button data-skill="TCP/IP">TCP/IP</button><button data-skill="LAN/WAN">LAN/WAN</button><button data-skill="Routing">Routing</button><button data-skill="Switching">Switching</button><button data-skill="Wi-Fi">Wi-Fi</button><button data-skill="Network Troubleshooting">Network Troubleshooting</button><button data-skill="Network Security">Network Security</button><button data-skill="VPN">VPN</button><button data-skill="IP Addressing">IP Addressing</button><button data-skill="Network Monitoring">Network Monitoring</button></div></div>
+<div class="group"><div class="group-head"><span>SEC</span><h3>CCTV & Security</h3></div><div class="tags"><button data-skill="CCTV Installation">CCTV Installation</button><button data-skill="IP Cameras">IP Cameras</button><button data-skill="Analog CCTV">Analog CCTV</button><button data-skill="NVR/DVR Configuration">NVR/DVR Configuration</button><button data-skill="Camera Networking">Camera Networking</button><button data-skill="Remote Monitoring">Remote Monitoring</button><button data-skill="Storage Configuration">Storage Configuration</button><button data-skill="Camera Troubleshooting">Camera Troubleshooting</button></div></div>
+<div class="group"><div class="group-head"><span>R&D</span><h3>Research & Technology</h3></div><div class="tags"><button data-skill="Technical Research">Technical Research</button><button data-skill="System Analysis">System Analysis</button><button data-skill="Technology Evaluation">Technology Evaluation</button><button data-skill="Documentation">Documentation</button><button data-skill="Problem Solving">Problem Solving</button><button data-skill="AI Tools">AI Tools</button><button data-skill="Automation">Automation</button><button data-skill="Emerging Technologies">Emerging Technologies</button></div></div>
+<div class="inspector"><span id="inspect-title">INSPECTOR / React</span><p id="inspect-copy">Component-driven interfaces and stateful experiences.</p></div>
+</div>
+</div>
+</section>
+
+<section class="section" id="services">
+<div class="heading reveal"><span class="kicker">03 / SERVICES</span><h2>Technology, End to End.</h2></div>
+<div class="services">
+<div class="service reveal"><span class="service-num">01</span><div><h3>WEB DEVELOPMENT</h3><p>Modern responsive websites and interactive web applications.</p></div><span class="arrow">↗</span></div>
+<div class="service reveal"><span class="service-num">02</span><div><h3>FULL-STACK DEVELOPMENT</h3><p>Frontend, backend, APIs, databases and complete application architecture.</p></div><span class="arrow">↗</span></div>
+<div class="service reveal"><span class="service-num">03</span><div><h3>NETWORK ENGINEERING</h3><p>Network setup, configuration, troubleshooting and optimization.</p></div><span class="arrow">↗</span></div>
+<div class="service reveal"><span class="service-num">04</span><div><h3>CCTV & SECURITY SYSTEMS</h3><p>IP/analog CCTV deployment, NVR/DVR configuration, networking and remote monitoring.</p></div><span class="arrow">↗</span></div>
+<div class="service reveal"><span class="service-num">05</span><div><h3>TECHNICAL CONSULTING</h3><p>Technology selection, architecture, troubleshooting and optimization.</p></div><span class="arrow">↗</span></div>
+<div class="service reveal"><span class="service-num">06</span><div><h3>RESEARCH & DEVELOPMENT</h3><p>Technical investigation, experimentation, documentation and emerging technology exploration.</p></div><span class="arrow">↗</span></div>
+</div>
+</section>
+
+<section class="section projects" id="projects">
+ <div class="heading reveal"><span class="kicker">04 / SELECTED WORK</span><h2>Projects, pulled from GitHub.</h2><p>Browse public repositories, inspect the tech stack, and open the source code. Project cards update from your public GitHub profile automatically.</p></div>
+ <div class="project-toolbar"><input class="project-search" id="repoSearch" type="search" placeholder="Search repositories…" aria-label="Search repositories"><div class="project-filters" id="repoFilters"><button class="active" data-filter="all">All projects</button><button data-filter="web">Web</button><button data-filter="android">Android</button><button data-filter="other">Other</button></div><span class="project-count" id="repoCount">Loading repositories…</span></div>
+ <div class="project-grid" id="repoGrid" aria-live="polite"><div class="repo-state">Loading public repositories from GitHub…</div></div>
+ </section>
+
+<section class="section infrastructure" id="infrastructure">
+<div class="heading reveal"><span class="kicker">05 / FIELD SYSTEMS</span><h2>Beyond Code.</h2><p>Building and managing the infrastructure that keeps systems connected and secure.</p></div>
+<div class="infra">
+<div class="network reveal">
+<div class="netnode">INTERNET</div><div class="netline"></div><div class="netnode">ROUTER</div><div class="netline"></div><div class="netnode">SWITCH</div>
+<div class="branches"><div class="branch"><span>NVR</span><i></i><b>IP CAMERAS</b></div><div class="branch"><span>SERVER</span><i></i><b>WORKSTATION</b></div><div class="branch"><span>ACCESS POINT</span><i></i><b>MOBILE MONITORING</b></div></div>
+<span class="packet p1"></span><span class="packet p2"></span><span class="packet p3"></span>
+</div>
+<div class="log reveal"><span class="kicker">SYSTEM LOG / CASE STUDY TEMPLATE</span><div><b>01</b><span>PROBLEM</span><em>[PLACEHOLDER]</em></div><div><b>02</b><span>ARCHITECTURE</span><em>[PLACEHOLDER]</em></div><div><b>03</b><span>INSTALLATION</span><em>[PLACEHOLDER]</em></div><div><b>04</b><span>CONFIGURATION</span><em>[PLACEHOLDER]</em></div><div><b>05</b><span>TESTING</span><em>[PLACEHOLDER]</em></div><div><b>06</b><span>RESULT</span><em>[PLACEHOLDER]</em></div></div>
+</div>
+</section>
+
+<section class="section" id="research">
+<div class="heading reveal"><span class="kicker">06 / LAB</span><h2>Research & Exploration</h2><p>A configurable laboratory for technical questions, experiments and documented findings.</p></div>
+<div class="research-grid">
+<div class="research-card reveal"><span>01</span><h3>Artificial Intelligence</h3><small>RESEARCH QUESTION</small><p>[RESEARCH QUESTION]</p><div class="research-foot"><span>DATE —</span><b>OPEN LAB ↗</b></div></div>
+<div class="research-card reveal"><span>02</span><h3>Computer Networks</h3><small>RESEARCH QUESTION</small><p>[RESEARCH QUESTION]</p><div class="research-foot"><span>DATE —</span><b>OPEN LAB ↗</b></div></div>
+<div class="research-card reveal"><span>03</span><h3>Cybersecurity</h3><small>RESEARCH QUESTION</small><p>[RESEARCH QUESTION]</p><div class="research-foot"><span>DATE —</span><b>OPEN LAB ↗</b></div></div>
+<div class="research-card reveal"><span>04</span><h3>Computer Vision</h3><small>RESEARCH QUESTION</small><p>[RESEARCH QUESTION]</p><div class="research-foot"><span>DATE —</span><b>OPEN LAB ↗</b></div></div>
+<div class="research-card reveal"><span>05</span><h3>CCTV Technology</h3><small>RESEARCH QUESTION</small><p>[RESEARCH QUESTION]</p><div class="research-foot"><span>DATE —</span><b>OPEN LAB ↗</b></div></div>
+<div class="research-card reveal"><span>06</span><h3>Automation</h3><small>RESEARCH QUESTION</small><p>[RESEARCH QUESTION]</p><div class="research-foot"><span>DATE —</span><b>OPEN LAB ↗</b></div></div>
+</div>
+</section>
+
+<section class="section" id="experience">
+<div class="heading reveal"><span class="kicker">07 / SYSTEM LOG</span><h2>Professional Journey</h2><p>Employment and achievement data remains intentionally empty until verified information is supplied.</p></div>
+<div class="timeline reveal"><div class="entry"><div class="year">YEAR</div><div class="entry-card"><span>POSITION</span><h3>[ORGANIZATION]</h3><p>[RESPONSIBILITIES WILL APPEAR HERE]</p><small>[ACHIEVEMENTS WILL APPEAR HERE]</small></div></div></div>
+</section>
+
+<section class="section" id="cv">
+<div class="cv-panel reveal"><div><span class="kicker">08 / CV</span><h2>My Professional Journey.</h2><p>[CV INFORMATION WILL APPEAR HERE]</p></div><a class="btn primary" href="#contact">CONFIGURE CV PDF ↗</a></div>
+</section>
+
+<section class="section" id="contact">
+<div class="heading reveal"><span class="kicker">09 / CONTACT</span><h2>Let's Build Something Useful.</h2></div>
+<div class="contact-grid">
+<form class="form reveal" onsubmit="event.preventDefault();alert('Configure an email address or backend endpoint before sending messages.');">
+<label>Name<input required name="name" placeholder="Your name"></label><label>Email<input required type="email" name="email" placeholder="you@example.com"></label><label>Subject<input name="subject" placeholder="Project or inquiry"></label><label>Message<textarea required rows="6" name="message" placeholder="Tell me what you're building..."></textarea></label><button class="btn primary" type="submit">SEND MESSAGE ↗</button>
+</form>
+<div class="reveal">
+<div class="terminal"><div class="termbar"><i></i><i></i><i></i><span>avi@command-center:~</span></div><pre>$ status --identity
+> Avi Vishwakarma
+> software / infrastructure / security
+> mode: research + engineering
+
+$ connect --available
+> email: [CONFIGURE EMAIL]
+> github: [CONFIGURE GITHUB]
+> linkedin: [CONFIGURE LINKEDIN]
+
+$ ./build-something-useful</pre></div>
+<div class="socials">
+<a href="#" onclick="return false"><span>Facebook</span><b>configure URL ↗</b></a>
+<a href="#" onclick="return false"><span>Instagram</span><b>@avi_vishwakarma0047</b></a>
+<a href="https://github.com/Dev-avi-A1" target="_blank" rel="noreferrer"><span>GitHub</span><b>@Dev-avi-A1 ↗</b></a>
+<a href="https://www.linkedin.com/" target="_blank" rel="noreferrer"><span>LinkedIn</span><b>Find me ↗</b></a>
+<a href="#" onclick="return false"><span>Email</span><b>configure address ↗</b></a>
+</div>
+</div>
+</div>
+</section>
+</main>
+
+<footer><div><strong>AVI VISHWAKARMA</strong><span>Building software, infrastructure and technology solutions.</span></div><div>© 2026 Avi Vishwakarma. All rights reserved.</div></footer>
+
+<script src="https://unpkg.com/three@0.180.0/build/three.min.js"></script>
+<script>
+(() => {
+const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const mobile=innerWidth<700;
+const scene=document.getElementById('scene');
+if(window.THREE && scene && !reduce){
+ const renderer=new THREE.WebGLRenderer({antialias:true,alpha:true,powerPreference:'high-performance'});
+ renderer.setPixelRatio(Math.min(devicePixelRatio,mobile?1:1.5)); renderer.setSize(scene.clientWidth,scene.clientHeight); renderer.outputColorSpace=THREE.SRGBColorSpace; scene.appendChild(renderer.domElement);
+ const s=new THREE.Scene(), cam=new THREE.PerspectiveCamera(38,scene.clientWidth/scene.clientHeight,.1,100);cam.position.set(0,0,7);
+ s.add(new THREE.AmbientLight(0x8fa9cc,1.5));const key=new THREE.DirectionalLight(0xdbe9ff,2.4);key.position.set(3,5,5);s.add(key);
+ const blue=new THREE.PointLight(0x4169e1,18,9);blue.position.set(-3,1,3);s.add(blue);
+ const root=new THREE.Group();s.add(root);
+ const mat=(c,metal=.7,rough=.28)=>new THREE.MeshStandardMaterial({color:c,metalness:metal,roughness:rough});
+ function box(w,h,d,x,y,z,c=0x101923){const m=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),mat(c));m.position.set(x,y,z);root.add(m);return m}
+ function router(){box(2.2,.3,1.2,-.2,.15,.1);for(let i=0;i<8;i++){const m=new THREE.Mesh(new THREE.SphereGeometry(.025,8,8),new THREE.MeshBasicMaterial({color:i===5?0x78a9ff:0x334155}));m.position.set(-.75+i*.21,.32,.5);root.add(m)}}
+ function server(){box(1,2.1,.65,2,-.45,.1,0x0b1119);for(let i=0;i<6;i++){const m=box(.7,.08,.02,2,.75-i*.29,.44,0x1d2939);const led=new THREE.Mesh(new THREE.SphereGeometry(.018,6,6),new THREE.MeshBasicMaterial({color:i%2?0x78a9ff:0x4ade80}));led.position.set(2.3,.75-i*.29,.47);root.add(led)}}
+ function camera(){const g=new THREE.Group();g.position.set(-2.25,1,.25);const body=new THREE.Mesh(new THREE.CylinderGeometry(.34,.4,.75,24),mat(0x151d27));body.rotation.z=.08;g.add(body);const lens=new THREE.Mesh(new THREE.CircleGeometry(.22,24),mat(0x02050a,.2,.15));lens.position.z=.4;g.add(lens);const glow=new THREE.Mesh(new THREE.SphereGeometry(.065,12,12),new THREE.MeshBasicMaterial({color:0x78a9ff}));glow.position.z=.41;g.add(glow);root.add(g)}
+ router();server();camera();
+ const pts=[new THREE.Vector3(-2.3,1,0),new THREE.Vector3(-.2,.2,.1),new THREE.Vector3(2,-.45,.1),new THREE.Vector3(1.6,-1.1,0)];
+ const line=new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts),new THREE.LineBasicMaterial({color:0x45648f,transparent:true,opacity:.55}));root.add(line);
+ const count=mobile?25:65, geo=new THREE.BufferGeometry(), arr=new Float32Array(count*3);
+ for(let i=0;i<count;i++){arr[i*3]=(Math.random()-.5)*6;arr[i*3+1]=(Math.random()-.5)*3.5;arr[i*3+2]=-1.3}
+ geo.setAttribute('position',new THREE.BufferAttribute(arr,3));const particles=new THREE.Points(geo,new THREE.PointsMaterial({color:0x78a9ff,size:.025,transparent:true,opacity:.55}));s.add(particles);
+ let tx=0,ty=0;addEventListener('mousemove',e=>{tx=(e.clientX/innerWidth-.5)*.35;ty=(e.clientY/innerHeight-.5)*.18});
+ const clock=new THREE.Clock();function animate(){requestAnimationFrame(animate);const t=clock.getElapsedTime();root.rotation.y+=(tx-root.rotation.y)*.025;root.rotation.x+=(-ty-root.rotation.x)*.025;root.position.y=Math.sin(t*.5)*.05;particles.rotation.y=t*.015;renderer.render(s,cam)}animate();
+ addEventListener('resize',()=>{renderer.setSize(scene.clientWidth,scene.clientHeight);cam.aspect=scene.clientWidth/scene.clientHeight;cam.updateProjectionMatrix()});
+} else if(scene){scene.classList.add('performance-mode')}
+
+const progress=document.getElementById('progress');addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-innerHeight;progress.style.transform=`scaleX(${h?scrollY/h:0})`},{passive:true});
+const menu=document.getElementById('menu'),links=document.getElementById('navlinks');menu.onclick=()=>{const open=links.classList.toggle('open');menu.setAttribute('aria-expanded',open)};links.querySelectorAll('a').forEach(a=>a.onclick=()=>links.classList.remove('open'));
+
+const copy={
+"HTML":"Semantic structure and accessible web foundations.","CSS":"Responsive layouts, visual systems and motion.","JavaScript":"Interactive application logic and browser APIs.","TypeScript":"Typed, maintainable application architecture.","React":"Component-driven interfaces and stateful experiences.","Next.js":"Full-stack React applications and optimized delivery.","Responsive Design":"Interfaces adapted across devices and input modes.","UI/UX":"Clear information hierarchy and usable interaction.","Tailwind CSS":"Utility-first, scalable interface styling.","Three.js":"Interactive 3D scenes and technical visualization.","React Three Fiber":"Declarative Three.js scenes in React.","GSAP":"Timeline-based cinematic motion and reveals.","Node.js":"Server-side JavaScript runtimes and services.","REST APIs":"Structured application interfaces and integrations.","Authentication":"Identity, sessions and access-control foundations.","Databases":"Persistent data models and application storage.","API Integration":"Connecting software to external systems.","Server Architecture":"Service boundaries, reliability and maintainability.","Backend Security":"Defensive server-side engineering practices.","Cloud Integration":"Connecting applications with cloud services.","TCP/IP":"Core protocols behind connected systems.","LAN/WAN":"Local and wide-area infrastructure concepts.","Routing":"Moving traffic between network segments.","Switching":"Layer-2 connectivity and segmentation concepts.","Wi-Fi":"Wireless connectivity and troubleshooting.","Network Troubleshooting":"Structured diagnosis of connectivity faults.","Network Security":"Hardening and controlled network access.","VPN":"Private tunnels for remote connectivity.","IP Addressing":"Address planning and network identification.","Network Monitoring":"Observability for connected infrastructure.","CCTV Installation":"Physical deployment and system setup.","IP Cameras":"Network-connected surveillance endpoints.","Analog CCTV":"Traditional camera and recorder environments.","NVR/DVR Configuration":"Recorder setup, storage and camera onboarding.","Camera Networking":"Connecting surveillance devices to IP networks.","Remote Monitoring":"Accessing surveillance systems from remote locations.","Storage Configuration":"Recording capacity and retention planning.","Camera Troubleshooting":"Diagnosing power, network and video faults.","Technical Research":"Structured investigation of technical questions.","System Analysis":"Breaking complex systems into understandable parts.","Technology Evaluation":"Comparing tools against practical requirements.","Documentation":"Capturing systems, decisions and procedures.","Problem Solving":"Root-cause analysis and practical remediation.","AI Tools":"Using modern AI capabilities in technical workflows.","Automation":"Reducing repetitive work with software.","Emerging Technologies":"Exploring new technical capabilities."
+};
+document.querySelectorAll('[data-skill]').forEach(el=>{const update=()=>{const n=el.dataset.skill;document.getElementById('inspect-title').textContent='INSPECTOR / '+n;document.getElementById('inspect-copy').textContent=copy[n]||'Technical capability.'};el.addEventListener('mouseenter',update);el.addEventListener('focus',update)});
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.12});document.querySelectorAll('.reveal').forEach(e=>obs.observe(e));
+ const repoGrid=document.getElementById('repoGrid'),repoSearch=document.getElementById('repoSearch'),repoFilters=document.getElementById('repoFilters'),repoCount=document.getElementById('repoCount');
+ let allRepos=[],activeFilter='all';
+ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ function repoCategory(r){const t=(r.name+' '+(r.description||'')+' '+(r.language||'')).toLowerCase();if(/android|kotlin|java|mobile|compose/.test(t))return 'android';if(/html|css|javascript|typescript|react|next|web|frontend|website/.test(t))return 'web';return 'other'}
+ function renderRepos(){
+  const q=(repoSearch.value||'').trim().toLowerCase();
+  const filtered=allRepos.filter(r=>(activeFilter==='all'||repoCategory(r)===activeFilter)&&(`${r.name} ${r.description||''} ${r.language||''} ${(r.topics||[]).join(' ')}`).toLowerCase().includes(q));
+  repoCount.textContent=`${filtered.length} ${filtered.length===1?'repository':'repositories'}`;
+  if(!filtered.length){repoGrid.innerHTML='<div class="repo-state">No matching public repositories. <a href="https://github.com/Dev-avi-A1?tab=repositories" target="_blank" rel="noreferrer">Browse all repositories ↗</a></div>';return}
+  repoGrid.innerHTML=filtered.map((r,i)=>{const preview=`https://opengraph.githubassets.com/1/${r.full_name}`;const lang=esc(r.language||'Repository');const desc=esc(r.description||'Open the repository to explore the source code and project details.');const updated=new Date(r.pushed_at||r.updated_at).toLocaleDateString(undefined,{year:'numeric',month:'short'});return `<article class="repo-card reveal visible"><div class="repo-preview"><div class="repo-preview-fallback"><b>${esc(r.name)}</b><small>${lang.toUpperCase()} · GITHUB REPOSITORY</small></div><img loading="lazy" src="${preview}" alt="GitHub preview for ${esc(r.name)}" onerror="this.style.display='none'"></div><div class="repo-body"><div class="repo-top"><h3>${esc(r.name)}</h3><span class="repo-icon">↗</span></div><p class="repo-description">${desc}</p><div class="repo-meta"><span class="repo-language">${lang}</span><span>☆ ${r.stargazers_count||0}</span><span>⑂ ${r.forks_count||0}</span><span>${updated}</span></div><div class="repo-actions"><a href="${r.html_url}" target="_blank" rel="noreferrer">VIEW SOURCE ↗</a>${r.homepage?`<a href="${esc(r.homepage)}" target="_blank" rel="noreferrer">LIVE DEMO ↗</a>`:''}</div></div></article>`}).join('');
+ }
+ repoSearch.addEventListener('input',renderRepos);
+ repoFilters.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{repoFilters.querySelectorAll('button').forEach(x=>x.classList.remove('active'));b.classList.add('active');activeFilter=b.dataset.filter;renderRepos()}));
+ fetch('https://api.github.com/users/Dev-avi-A1/repos?per_page=100&sort=updated&type=owner')
+  .then(r=>{if(!r.ok)throw new Error('GitHub API returned '+r.status);return r.json()})
+  .then(data=>{allRepos=data.filter(r=>!r.fork&&!r.archived).sort((a,b)=>(b.stargazers_count-a.stargazers_count)||(new Date(b.pushed_at)-new Date(a.pushed_at)));renderRepos()})
+  .catch(()=>{repoCount.textContent='GitHub unavailable';repoGrid.innerHTML='<div class="repo-state">Could not load repositories right now. Check your connection or <a href="https://github.com/Dev-avi-A1?tab=repositories" target="_blank" rel="noreferrer">open the GitHub profile directly ↗</a>.</div>'});
+
+})();
+</script>
+</body>
+</html>
