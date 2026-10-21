@@ -1,0 +1,156 @@
+<!-- ============================================================
+     REPLACEMENT for the existing JSON-LD script block in <head>.
+     Adds: sameAs, email, hasOccupation, dateModified and a FAQPage node.
+     Fill the TODO fields, then delete this comment.
+     ============================================================ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://anupbk.com.np/#person",
+      "name": "Avi Vishwakarma",
+      "alternateName": "Anup BK",
+      "url": "https://anupbk.com.np/",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://anupbk.com.np/assets/avi-profile.webp",
+        "width": 405,
+        "height": 465
+      },
+      "jobTitle": "Software Developer, Network Engineer, Security Systems",
+      "description": "Avi Vishwakarma is a software developer, network engineer and security-systems professional based in Nepal, working on web development, API integration, Android and Kotlin, AI experiments, computer networking, and CCTV/security systems.",
+      "email": "mailto:TODO@example.com",
+      "knowsAbout": [
+        "Web development",
+        "React",
+        "Next.js",
+        "JavaScript",
+        "TypeScript",
+        "API integration",
+        "REST APIs",
+        "Android development",
+        "Kotlin",
+        "Python",
+        "Linux",
+        "Computer networking",
+        "Routing and switching",
+        "CCTV systems",
+        "Security systems",
+        "AI tools",
+        "Automation",
+        "Docker",
+        "Git",
+        "Firebase",
+        "Node.js",
+        "MongoDB"
+      ],
+      "knowsLanguage": ["English", "Nepali"],
+      "hasOccupation": {
+        "@type": "Occupation",
+        "name": "Software Developer and Network Engineer",
+        "occupationLocation": {
+          "@type": "Country",
+          "name": "Nepal"
+        },
+        "skills": "Web development, API integration, Android and Kotlin, Python automation, computer networking, CCTV and security systems"
+      },
+      "sameAs": [
+        "TODO: https://github.com/USERNAME",
+        "TODO: https://www.linkedin.com/in/USERNAME"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "TODO_CITY",
+        "addressCountry": "NP"
+      },
+      "mainEntityOfPage": { "@id": "https://anupbk.com.np/#website" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://anupbk.com.np/#website",
+      "url": "https://anupbk.com.np/",
+      "name": "Avi Vishwakarma — Portfolio",
+      "description": "Official portfolio of Avi Vishwakarma: web development, Android, AI experiments, networking and security systems.",
+      "inLanguage": "en",
+      "dateModified": "2026-10-21",
+      "publisher": { "@id": "https://anupbk.com.np/#person" }
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": "https://anupbk.com.np/#profile",
+      "url": "https://anupbk.com.np/",
+      "name": "Avi Vishwakarma — Professional Portfolio",
+      "dateModified": "2026-10-21",
+      "mainEntity": { "@id": "https://anupbk.com.np/#person" },
+      "isPartOf": { "@id": "https://anupbk.com.np/#website" },
+      "hasPart": { "@id": "https://anupbk.com.np/#faq" }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://anupbk.com.np/#faq",
+      "url": "https://anupbk.com.np/#faq",
+      "isPartOf": { "@id": "https://anupbk.com.np/#website" },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Who is Avi Vishwakarma?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Avi Vishwakarma is a software developer, network engineer and security-systems professional based in Nepal. He builds web applications, integrates APIs, develops Android and Kotlin apps, experiments with AI and automation, and sets up computer networks and CCTV/security systems. This portfolio at anupbk.com.np is the official record of his work."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does Avi Vishwakarma do?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "He works across six areas: web development, API integration, Android and Kotlin development, AI experiments and automation, computer networking, and CCTV and security systems. In practice that means building the interface people use as well as the network and infrastructure that keeps it running."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What technologies does Avi Vishwakarma work with?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The stack includes React, Next.js, JavaScript and TypeScript for the web; Kotlin and Android for mobile; Python and Linux for automation and tooling; plus Docker, Git, computer networking, CCTV systems and security-system integration. API integration ties these together across projects."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What projects has Avi Vishwakarma built?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Four projects are featured. A2Z-NOVACART is an e-commerce concept built with React, Node.js and MongoDB. AI Voice Automation explores Linux voice commands and hands-free workflows in Python. Network Infrastructure covers network and CCTV/security setup concepts. Android App is a Kotlin-based mobile application direction using Firebase. These are concepts and explorations rather than commercial deployments."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where is Avi Vishwakarma based?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "He is based in Nepal and works remotely on web, mobile, AI and infrastructure projects."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Avi Vishwakarma available for collaboration?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The site states he is open to collaboration and project discussions, with a direct contact section for enquiries about web development, Android apps, AI automation, networking or security systems."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I contact Avi Vishwakarma?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Use the contact section at https://anupbk.com.np/#contact or email TODO@example.com. That is the fastest route for project enquiries and collaboration."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
