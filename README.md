@@ -14,7 +14,6 @@ A static portfolio website built with HTML, CSS, and JavaScript. The existing pa
 |-- robots.txt
 |-- sitemap.xml
 |-- assets/                 Site CSS, JavaScript, and image files
-|-- SEO/                    Reference snippets; not included in the published site
 `-- .github/workflows/      GitHub Pages deployment workflow
 ```
 
@@ -35,4 +34,4 @@ Then visit `http://localhost:8000`.
 3. The workflow at `.github/workflows/deploy-pages.yml` publishes the site on each push to either branch. It can also be started manually from the repository's **Actions** tab.
 4. The site uses `anupbk.com.np` as its custom domain, matching the canonical URLs already present in the pages. Configure the domain's DNS for GitHub Pages and verify it under **Settings > Pages** before relying on the custom domain.
 
-The workflow publishes only the website pages and required assets. It leaves the original source files untouched and does not publish editor settings or the `SEO/` reference snippets.
+The workflow publishes only the website pages and required assets. It leaves repository documentation and editor settings out of the published site.
