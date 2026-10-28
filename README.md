@@ -1,36 +1,38 @@
-# Avi Vishwakarma — Portfolio
+# Anup Kumar BK - Portfolio
 
-A responsive, framework-free personal portfolio designed from the supplied visual references. It is ready to publish as a static GitHub Pages site.
+A static portfolio website built with HTML, CSS, and JavaScript. The existing pages and assets stay in the repository root and are published without a build step.
 
-## Files
+## Project layout
 
-- `index.html` — semantic page structure, SEO metadata, Open Graph/Twitter metadata, and JSON-LD profile data
-- `styles.css` — responsive dark-blue design, accessible focus states, light theme, and reduced-motion support
-- `script.js` — mobile navigation, theme toggle, project filters, and scroll reveal behavior
-- `assets/` — optimized portrait assets, social-preview artwork, favicon, and local project thumbnails
-- `robots.txt` and `sitemap.xml` — basic discovery files
-- `CNAME` — configured for `anupbk.com.np`
-
-## Publish to GitHub Pages
-
-1. Upload the contents of this folder to the root of the repository used for the portfolio site. Keep the `assets/` folder at the same level as `index.html`.
-2. In the repository, open **Settings → Pages** and publish from the intended branch and root folder (usually `main` / `/root`).
-3. Keep the `CNAME` file in the published root. In your domain provider's DNS, point the domain to GitHub Pages using the current records shown in GitHub's Pages settings. Enable HTTPS when GitHub offers it.
-4. After deployment, confirm that `https://anupbk.com.np/`, `/robots.txt`, `/sitemap.xml`, and `/assets/og-image.jpg` load correctly.
-5. Submit `https://anupbk.com.np/sitemap.xml` in Google Search Console and verify the domain. Structured data and metadata improve machine readability, but do not guarantee indexing or ranking.
-
-## Before publishing
-
-- The project cards are based on the project themes in the supplied references. Replace the cards' `href="#contact"` destinations with real repository or demo URLs once available.
-- No email address or social profiles were supplied, so none have been invented. Add verified contact links to the Contact section when ready.
-- Review the factual profile description and technical-stack list before publishing. Remove any technology that does not accurately represent your current experience.
-
-## Local preview
-
-Open `index.html` directly in a browser, or run a static server from this folder, for example:
-
-```bash
-python3 -m http.server 8000
+```text
+.
+|-- index.html
+|-- projects.html
+|-- tools.html
+|-- favicon.svg
+|-- llms.txt
+|-- robots.txt
+|-- sitemap.xml
+|-- assets/                 Site CSS, JavaScript, and image files
+|-- SEO/                    Reference snippets; not included in the published site
+`-- .github/workflows/      GitHub Pages deployment workflow
 ```
 
-Then visit `http://localhost:8000/`. No build step, package installation, or backend is required.
+## Preview locally
+
+Open `index.html` in a browser, or use a local static-file server from the project root. For example, with Python installed:
+
+```powershell
+python -m http.server 8000
+```
+
+Then visit `http://localhost:8000`.
+
+## Deploy with GitHub Pages
+
+1. Push this project to a GitHub repository on the `main` or `master` branch.
+2. In the repository, open **Settings > Pages** and set the publishing source to **GitHub Actions**.
+3. The workflow at `.github/workflows/deploy-pages.yml` publishes the site on each push to either branch. It can also be started manually from the repository's **Actions** tab.
+4. The site uses `anupbk.com.np` as its custom domain, matching the canonical URLs already present in the pages. Configure the domain's DNS for GitHub Pages and verify it under **Settings > Pages** before relying on the custom domain.
+
+The workflow publishes only the website pages and required assets. It leaves the original source files untouched and does not publish editor settings or the `SEO/` reference snippets.

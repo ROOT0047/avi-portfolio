@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Free Online IT Tools | Anup Kumar BK</title>
+<meta name="description" content="Use free browser-based IT tools by Anup Kumar BK: a secure password maker, IPv4 subnet calculator, storage converter, and common network port finder.">
+<meta name="robots" content="index,follow">
+<meta name="author" content="Anup Kumar BK">
+<meta name="theme-color" content="#3447F5">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Anup Kumar BK">
+<meta property="og:title" content="Free Online IT Tools | Anup Kumar BK">
+<meta property="og:description" content="Use free browser-based IT tools: a password maker, IPv4 subnet calculator, storage converter, and common network port finder.">
+<meta property="og:url" content="https://anupbk.com.np/tools.html">
+<meta property="og:image" content="https://anupbk.com.np/assets/pro-img.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free Online IT Tools | Anup Kumar BK">
+<meta name="twitter:description" content="Use free browser-based IT tools: a password maker, IPv4 subnet calculator, storage converter, and common network port finder.">
+<meta name="twitter:image" content="https://anupbk.com.np/assets/pro-img.png">
+<link rel="canonical" href="https://anupbk.com.np/tools.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/tools.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","@id":"https://anupbk.com.np/tools.html#webpage","url":"https://anupbk.com.np/tools.html","name":"Free Online IT Tools | Anup Kumar BK","description":"Free browser-based password, networking, and storage tools.","inLanguage":"en","isPartOf":{"@id":"https://anupbk.com.np/#website"},"about":{"@id":"https://anupbk.com.np/#person"},"mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"Password maker"},{"@type":"ListItem","position":2,"name":"IPv4 subnet calculator"},{"@type":"ListItem","position":3,"name":"Storage converter"},{"@type":"ListItem","position":4,"name":"Network port finder"}]}}</script>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="index.html" aria-label="Avi, home">
+      <span class="tile" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20 12 4l8 16"/><path d="M7.5 14h9"/></svg></span>
+      <span>Avi</span>
+    </a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <button class="key small" id="themeBtn" type="button" aria-label="Switch between light and dark theme">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v18"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section aria-labelledby="tools-title">
+      <div class="head">
+        <p class="eyebrow">Live tools</p>
+        <h1 id="tools-title">Free online IT tools</h1>
+        <p>Everything runs in your browser. Nothing you type is sent anywhere.</p>
+      </div>
+      <div class="keys" role="tablist" aria-label="Tools">
+        <button class="key" role="tab" id="tab-pw" aria-controls="p-pw" aria-selected="true" type="button">Password maker</button>
+        <button class="key" role="tab" id="tab-ip" aria-controls="p-ip" aria-selected="false" tabindex="-1" type="button">Subnet calculator</button>
+        <button class="key" role="tab" id="tab-st" aria-controls="p-st" aria-selected="false" tabindex="-1" type="button">Storage converter</button>
+        <button class="key" role="tab" id="tab-pt" aria-controls="p-pt" aria-selected="false" tabindex="-1" type="button">Port finder</button>
+      </div>
+
+      <div class="bench">
+        <div class="panel" id="p-pw" role="tabpanel" aria-labelledby="tab-pw">
+          <div><h2>Password maker</h2><p class="sub">Random passwords built with your browser's secure random generator.</p></div>
+          <div class="field">
+            <span class="lbl">Your password</span>
+            <div class="row">
+              <div class="well out grow" id="pwOut" aria-live="polite"></div>
+              <button class="key" type="button" id="pwNew">New</button>
+              <button class="key primary" type="button" id="pwCopy">Copy</button>
+            </div>
+          </div>
+          <div class="field">
+            <label for="pwLen">Length: <span id="pwLenVal" class="num">20</span> characters</label>
+            <input type="range" id="pwLen" min="8" max="64" value="20">
+          </div>
+          <div class="opts" role="group" aria-label="Character sets">
+            <label class="opt"><input type="checkbox" id="oLower" checked><span class="sw"></span>a–z</label>
+            <label class="opt"><input type="checkbox" id="oUpper" checked><span class="sw"></span>A–Z</label>
+            <label class="opt"><input type="checkbox" id="oDigit" checked><span class="sw"></span>0–9</label>
+            <label class="opt"><input type="checkbox" id="oSym" checked><span class="sw"></span>!@#$</label>
+          </div>
+          <div class="field">
+            <div class="meter" aria-hidden="true"><span class="seg" id="s1"></span><span class="seg" id="s2"></span><span class="seg" id="s3"></span><span class="seg" id="s4"></span></div>
+            <div class="meter-row"><span>Strength: <b id="pwLabel">Strong</b></span><span class="num" id="pwBits">0 bits</span></div>
+          </div>
+        </div>
+
+        <div class="panel" id="p-ip" role="tabpanel" aria-labelledby="tab-ip" hidden>
+          <div><h2>Subnet calculator</h2><p class="sub">Type an IPv4 address with its prefix, like 192.168.10.37/24.</p></div>
+          <div class="field">
+            <label for="ipIn">Address / prefix</label>
+            <input class="well" id="ipIn" type="text" inputmode="text" autocomplete="off" spellcheck="false" value="192.168.10.37/24">
+            <p class="msg" id="ipMsg" aria-live="polite"></p>
+          </div>
+          <div class="grid2" id="ipOut"></div>
+          <p class="note" id="ipNote"></p>
+        </div>
+
+        <div class="panel" id="p-st" role="tabpanel" aria-labelledby="tab-st" hidden>
+          <div><h2>Storage converter</h2><p class="sub">Drive makers count in 1000s, Windows counts in 1024s. See both side by side.</p></div>
+          <div class="row">
+            <div class="field grow"><label for="stVal">Size</label><input class="well" id="stVal" type="number" inputmode="decimal" min="0" step="any" value="500"></div>
+            <div class="field grow"><label for="stUnit">Unit</label>
+              <select class="well" id="stUnit">
+                <option value="1">B</option><option value="1e3">KB</option><option value="1e6">MB</option><option value="1e9" selected>GB</option><option value="1e12">TB</option>
+                <option value="1024">KiB</option><option value="1048576">MiB</option><option value="1073741824">GiB</option><option value="1099511627776">TiB</option>
+              </select>
+            </div>
+          </div>
+          <div class="tablebox"><table>
+            <thead><tr><th>Decimal (1000)</th><th>Value</th><th>Binary (1024)</th><th>Value</th></tr></thead>
+            <tbody id="stBody"></tbody>
+          </table></div>
+          <p class="note" id="stNote"></p>
+        </div>
+
+        <div class="panel" id="p-pt" role="tabpanel" aria-labelledby="tab-pt" hidden>
+          <div><h2>Port finder</h2><p class="sub">Common network ports. Search by number or service name.</p></div>
+          <div class="field">
+            <label for="ptIn">Search</label>
+            <input class="well" id="ptIn" type="search" autocomplete="off" placeholder="443, rdp, mail…">
+          </div>
+          <div class="tablebox"><table>
+            <thead><tr><th>Port</th><th>Protocol</th><th>Service</th><th>Used for</th></tr></thead>
+            <tbody id="ptBody"></tbody>
+          </table></div>
+          <p class="msg" id="ptMsg" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="next" aria-label="Tools planned next">
+      <div><span class="eyebrow">On the bench</span><b>Printer fix sheet</b><span>Step-by-step checks for jams, queues and drivers.</span></div>
+      <div><span class="eyebrow">On the bench</span><b>Windows shortcut board</b><span>The keys I reach for most, in one view.</span></div>
+      <div><span class="eyebrow">On the bench</span><b>Ping log</b><span>Record outages with time and device.</span></div>
+    </section>
+  </main>
+
+  <footer><span>From Lumbini Province, Nepal · working in Türkiye</span><nav aria-label="More pages"><a href="index.html">Home</a> · <a href="projects.html">Projects</a></nav></footer>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="assets/tools.js" defer></script>
+</body>
+</html>
