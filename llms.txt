@@ -11,7 +11,7 @@ The canonical portfolio is https://anupbk.com.np/.
 - [Skills](https://anupbk.com.np/#skills): Web design, WordPress, SEO, AI integration, AI chatbots, MongoDB, network troubleshooting, technical support, operating system installation, systems maintenance, and user support.
 - [Experience](https://anupbk.com.np/#experience): IT Technician at CW ENERJİ in Türkiye; previous IT Engineer experience at Neton IT Solution and IT Technician experience at National Computers.
 - [Projects](https://anupbk.com.np/projects.html): Portfolio website and browser-based IT tools.
-- [Live tools](https://anupbk.com.np/tools.html): Password maker, subnet calculator, storage converter, and port finder.
+- [Live tools](https://anupbk.com.np/tools.html): Password maker, hash generator, Base64 encoder, JWT decoder, JSON formatter, timestamp converter, subnet calculator, Wi-Fi channel planner, port finder, transfer time calculator, storage converter, and HTTP status codes.
 - [Contact](https://anupbk.com.np/#contact): Email, WhatsApp, website, and LinkedIn details.
 
 ## Profile

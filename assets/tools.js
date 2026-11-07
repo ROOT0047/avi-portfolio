@@ -21,6 +21,7 @@
     if(p&&p.then){p.then(function(){say('Copied')},function(){selectNode(node);say('Selected. Press Ctrl+C to copy')})}
     else{selectNode(node);say('Selected. Press Ctrl+C to copy')}
   }
+  function debounce(fn,ms){var t;return function(){clearTimeout(t);t=setTimeout(fn,ms)}}
 
   var tabs=$$('[role=tab]');
   function pick(t,focus){
@@ -35,6 +36,8 @@
     t.addEventListener('keydown',function(e){
       var d=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;
       if(d){e.preventDefault();pick(tabs[(i+d+tabs.length)%tabs.length],true)}
+      else if(e.key==='Home'){e.preventDefault();pick(tabs[0],true)}
+      else if(e.key==='End'){e.preventDefault();pick(tabs[tabs.length-1],true)}
     });
   });
 
@@ -126,4 +129,257 @@
     $('#ptMsg').textContent=rows.length?rows.length+' of '+PORTS.length+' ports shown.':'No port matches that search.';
   }
   $('#ptIn').addEventListener('input',ptRender);ptRender();
+
+  function hex(buf){
+    var a=new Uint8Array(buf),s='';
+    for(var i=0;i<a.length;i++)s+=(a[i]<16?'0':'')+a[i].toString(16);
+    return s;
+  }
+  var HASH_ALGS=['SHA-1','SHA-256','SHA-384','SHA-512'];
+  var hashOut={};
+  HASH_ALGS.forEach(function(a){hashOut[a]=$('#'+(a==='SHA-1'?'hSha1':a==='SHA-256'?'hSha256':a==='SHA-384'?'hSha384':'hSha512'))});
+  var hashSeq=0;
+  function hashRun(){
+    var text=$('#hashIn').value,id=++hashSeq;
+    if(!text){HASH_ALGS.forEach(function(a){hashOut[a].textContent='–'});return}
+    if(!window.crypto||!crypto.subtle){HASH_ALGS.forEach(function(a){hashOut[a].textContent='Needs HTTPS'});return}
+    var data=new TextEncoder().encode(text);
+    HASH_ALGS.forEach(function(a){
+      crypto.subtle.digest(a,data).then(function(buf){
+        if(id===hashSeq)hashOut[a].textContent=hex(buf);
+      },function(){
+        if(id===hashSeq)hashOut[a].textContent='Not available';
+      });
+    });
+  }
+  $('#hashIn').addEventListener('input',debounce(hashRun,120));
+  hashRun();
+  $$('[data-copy]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var n=document.getElementById(b.getAttribute('data-copy'));
+      if(n)copyText(n.textContent,n);
+    });
+  });
+
+  var b64Mode='encode';
+  function b64Set(mode){
+    b64Mode=mode;
+    $('#b64Enc').setAttribute('aria-pressed',mode==='encode'?'true':'false');
+    $('#b64Dec').setAttribute('aria-pressed',mode==='decode'?'true':'false');
+    b64Run();
+  }
+  function b64Run(){
+    var s=$('#b64In').value,out=$('#b64Out'),msg=$('#b64Msg');
+    msg.textContent='';msg.className='msg';
+    if(!s){out.textContent='';return}
+    try{
+      if(b64Mode==='encode'){
+        var bytes=new TextEncoder().encode(s),bin='';
+        for(var i=0;i<bytes.length;i++)bin+=String.fromCharCode(bytes[i]);
+        var b=btoa(bin);
+        if($('#b64Url').checked)b=b.replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+        out.textContent=b;
+      }else{
+        var t=s.trim();
+        if($('#b64Url').checked)t=t.replace(/-/g,'+').replace(/_/g,'/');
+        while(t.length%4)t+='=';
+        var raw=atob(t),arr=new Uint8Array(raw.length);
+        for(var j=0;j<raw.length;j++)arr[j]=raw.charCodeAt(j);
+        out.textContent=new TextDecoder('utf-8',{fatal:true}).decode(arr);
+      }
+    }catch(e){
+      out.textContent='';
+      msg.textContent=b64Mode==='encode'?'Could not encode that text.':'That is not valid Base64.';
+      msg.className='msg err';
+    }
+  }
+  $('#b64Enc').addEventListener('click',function(){b64Set('encode')});
+  $('#b64Dec').addEventListener('click',function(){b64Set('decode')});
+  $('#b64In').addEventListener('input',b64Run);
+  $('#b64Url').addEventListener('change',b64Run);
+  $('#b64Copy').addEventListener('click',function(){var n=$('#b64Out');if(n.textContent)copyText(n.textContent,n)});
+  b64Run();
+
+  function b64urlDecode(s){
+    s=s.replace(/-/g,'+').replace(/_/g,'/');
+    while(s.length%4)s+='=';
+    var raw=atob(s),arr=new Uint8Array(raw.length);
+    for(var i=0;i<raw.length;i++)arr[i]=raw.charCodeAt(i);
+    return new TextDecoder().decode(arr);
+  }
+  function jwtRun(){
+    var t=$('#jwtIn').value.trim(),out=$('#jwtOut'),msg=$('#jwtMsg');
+    if(!t){out.hidden=true;msg.textContent='';msg.className='msg';return}
+    var parts=t.split('.');
+    if(parts.length<2){out.hidden=true;msg.textContent='A JWT has at least two parts separated by dots.';msg.className='msg err';return}
+    try{
+      var h=JSON.parse(b64urlDecode(parts[0])),p=JSON.parse(b64urlDecode(parts[1]));
+      $('#jwtHead').textContent=JSON.stringify(h,null,2);
+      $('#jwtPay').textContent=JSON.stringify(p,null,2);
+      var bits=[];
+      if(p.exp){var d=new Date(p.exp*1000);bits.push((d.getTime()<Date.now()?'Expired ':'Valid until ')+d.toLocaleString())}
+      if(p.iat){bits.push('Issued '+new Date(p.iat*1000).toLocaleString())}
+      if(p.nbf){bits.push('Not before '+new Date(p.nbf*1000).toLocaleString())}
+      $('#jwtTime').textContent=bits.length?bits.join(' · '):'No exp, iat or nbf claim.';
+      out.hidden=false;msg.textContent='';msg.className='msg';
+    }catch(e){
+      out.hidden=true;msg.textContent='Could not decode: '+e.message;msg.className='msg err';
+    }
+  }
+  $('#jwtIn').addEventListener('input',debounce(jwtRun,150));
+  jwtRun();
+
+  function jsonRun(mode){
+    var src=$('#jsonIn').value,out=$('#jsonOut'),msg=$('#jsonMsg');
+    if(!src.trim()){out.textContent='';msg.textContent='';msg.className='msg';return}
+    try{
+      var v=JSON.parse(src);
+      out.textContent=mode==='min'?JSON.stringify(v):JSON.stringify(v,null,2);
+      msg.textContent='Valid JSON';msg.className='msg';
+    }catch(e){
+      out.textContent='';msg.textContent=e.message;msg.className='msg err';
+    }
+  }
+  $('#jsonFmt').addEventListener('click',function(){jsonRun('format')});
+  $('#jsonMin').addEventListener('click',function(){jsonRun('min')});
+  $('#jsonCopy').addEventListener('click',function(){var n=$('#jsonOut');if(n.textContent)copyText(n.textContent,n)});
+
+  function relTime(d){
+    var diff=Math.round((d.getTime()-Date.now())/1000),a=Math.abs(diff),n,u;
+    if(a<45)return diff>=0?'in a moment':'just now';
+    if(a<3600){n=Math.round(a/60);u=n===1?'minute':'minutes'}
+    else if(a<86400){n=Math.round(a/3600);u=n===1?'hour':'hours'}
+    else if(a<2592000){n=Math.round(a/86400);u=n===1?'day':'days'}
+    else if(a<31536000){n=Math.round(a/2592000);u=n===1?'month':'months'}
+    else{n=Math.round(a/31536000);u=n===1?'year':'years'}
+    return (diff>0?'in ':'')+n+' '+u+(diff<0?' ago':'');
+  }
+  function tsRun(){
+    var raw=$('#tsIn').value.trim(),msg=$('#tsMsg'),out=$('#tsOut');
+    if(!raw){out.innerHTML='';msg.textContent='Enter a timestamp or a date.';msg.className='msg';return}
+    var d=null;
+    if(/^-?\d+(\.\d+)?$/.test(raw)){
+      var n=parseFloat(raw);
+      d=new Date(Math.abs(n)>=1e11?n:n*1000);
+    }else{
+      var p=Date.parse(raw);
+      if(!isNaN(p))d=new Date(p);
+    }
+    if(!d||isNaN(d.getTime())){out.innerHTML='';msg.textContent='That is not a timestamp or date I can read.';msg.className='msg err';return}
+    msg.textContent='';msg.className='msg';
+    var cells=[['ISO 8601 (UTC)',d.toISOString()],['Your local time',d.toLocaleString()],['Weekday',d.toLocaleDateString(undefined,{weekday:'long'})],['Relative',relTime(d)],['Unix seconds',Math.floor(d.getTime()/1000)],['Unix milliseconds',d.getTime()]];
+    out.innerHTML=cells.map(function(c){return '<div class="cell"><span class="lbl">'+c[0]+'</span><span class="val">'+c[1]+'</span></div>'}).join('');
+  }
+  $('#tsIn').addEventListener('input',debounce(tsRun,120));
+  $('#tsNow').addEventListener('click',function(){$('#tsIn').value=Math.floor(Date.now()/1000);tsRun()});
+  $('#tsIn').value=Math.floor(Date.now()/1000);
+  tsRun();
+
+  var wifiBars=[];
+  (function(){
+    var box=$('#wifiRows');
+    for(var c=1;c<=13;c++){
+      var row=document.createElement('div');row.className='wifi-row';
+      var n=document.createElement('span');n.textContent=c;
+      var track=document.createElement('div');track.className='wifi-track';
+      var bar=document.createElement('span');bar.className='wifi-bar';
+      bar.style.left=((c-1)/13*100)+'%';
+      bar.style.width=(5/13*100)+'%';
+      track.appendChild(bar);row.appendChild(n);row.appendChild(track);box.appendChild(row);
+      wifiBars.push(bar);
+    }
+  })();
+  function wifiRun(){
+    var sel=+$('#wifiCh').value,lo=Math.max(1,sel-4),hi=Math.min(13,sel+4);
+    wifiBars.forEach(function(b,i){
+      var ch=i+1;
+      b.className='wifi-bar'+(ch===sel?' on':(Math.abs(ch-sel)<=4?' hit':''));
+    });
+    var clean=sel===1||sel===6||sel===11;
+    $('#wifiOut').textContent=clean
+      ?('Channel '+sel+' overlaps '+lo+'–'+hi+'. It is one of the three clean choices: 1, 6 and 11.')
+      :('Channel '+sel+' overlaps '+lo+'–'+hi+'. Move to 1, 6 or 11 to avoid the overlap.');
+  }
+  $('#wifiCh').addEventListener('change',wifiRun);
+  wifiRun();
+
+  function fmtDur(s){
+    if(!isFinite(s)||s<0)return '–';
+    if(s<1)return 'under 1 second';
+    s=Math.round(s);
+    var h=Math.floor(s/3600),m=Math.floor((s%3600)/60),sec=s%60,out=[];
+    if(h)out.push(h+' h');
+    if(m)out.push(m+' min');
+    if(sec||!out.length)out.push(sec+' s');
+    return out.join(' ');
+  }
+  function ttRun(){
+    var v=parseFloat($('#ttSize').value),u=parseFloat($('#ttUnit').value),sp=parseFloat($('#ttSpeed').value);
+    if(!isFinite(v)||v<0||!isFinite(sp)||sp<=0){$('#ttOut').textContent='–';$('#ttReal').textContent='–';return}
+    var sec=(v*u*8)/(sp*1e6);
+    $('#ttOut').textContent=fmtDur(sec);
+    $('#ttReal').textContent=fmtDur(sec/0.8);
+  }
+  ['#ttSize','#ttUnit','#ttSpeed'].forEach(function(s){$(s).addEventListener('input',ttRun);$(s).addEventListener('change',ttRun)});
+  ttRun();
+
+  var HTTP=[
+    [100,'Continue','Server got the request headers, client should send the body'],
+    [101,'Switching Protocols','Protocol change accepted, used by WebSocket upgrades'],
+    [103,'Early Hints','Preload hints sent before the final response'],
+    [200,'OK','Request succeeded'],
+    [201,'Created','Resource created, usually after a POST'],
+    [202,'Accepted','Queued for processing, not finished yet'],
+    [204,'No Content','Success with an empty body'],
+    [206,'Partial Content','Part of a file, used for downloads and video'],
+    [301,'Moved Permanently','New URL, update bookmarks and links'],
+    [302,'Found','Temporary redirect, keep the old URL'],
+    [303,'See Other','Redirect the browser to a GET after a POST'],
+    [304,'Not Modified','Cached copy is still valid'],
+    [307,'Temporary Redirect','Like 302 but the method must not change'],
+    [308,'Permanent Redirect','Like 301 but the method must not change'],
+    [400,'Bad Request','Malformed request or invalid input'],
+    [401,'Unauthorized','Login required or credentials rejected'],
+    [402,'Payment Required','Reserved, used by some paid APIs'],
+    [403,'Forbidden','Logged in but not allowed'],
+    [404,'Not Found','No resource at that URL'],
+    [405,'Method Not Allowed','Wrong HTTP method for this URL'],
+    [406,'Not Acceptable','Server cannot produce the requested format'],
+    [408,'Request Timeout','Client took too long to send the request'],
+    [409,'Conflict','Request clashes with the current state'],
+    [410,'Gone','Resource removed on purpose and will not return'],
+    [411,'Length Required','Content-Length header is missing'],
+    [412,'Precondition Failed','A conditional header did not match'],
+    [413,'Payload Too Large','Request body is bigger than the server allows'],
+    [414,'URI Too Long','URL is longer than the server accepts'],
+    [415,'Unsupported Media Type','Wrong Content-Type for this endpoint'],
+    [418,'I\'m a Teapot','April Fools code, sometimes used for bots'],
+    [422,'Unprocessable Content','JSON was valid but the fields were not'],
+    [425,'Too Early','Server refuses to replay a request too soon'],
+    [429,'Too Many Requests','Rate limited, slow down and retry later'],
+    [500,'Internal Server Error','Unhandled error on the server'],
+    [501,'Not Implemented','Server does not support that method'],
+    [502,'Bad Gateway','Upstream server returned an invalid response'],
+    [503,'Service Unavailable','Overloaded or down, retry later'],
+    [504,'Gateway Timeout','Upstream server did not answer in time'],
+    [505,'HTTP Version Not Supported','Server cannot use that HTTP version'],
+    [511,'Network Authentication Required','Captive portal or network login needed']
+  ];
+  function httpRender(){
+    var q=$('#httpIn').value.trim().toLowerCase();
+    var rows=HTTP.filter(function(r){return !q||(r[0]+' '+r[1]+' '+r[2]).toLowerCase().indexOf(q)>-1});
+    var body=$('#httpBody');body.textContent='';
+    rows.forEach(function(r){
+      var tr=document.createElement('tr');
+      [r[0],r[1],r[2]].forEach(function(v,i){
+        var td=document.createElement('td');td.textContent=v;
+        td.className=i===0?'m num':i===1?'m':'n';
+        tr.appendChild(td);
+      });
+      body.appendChild(tr);
+    });
+    $('#httpMsg').textContent=rows.length?rows.length+' of '+HTTP.length+' codes shown.':'No code matches that search.';
+  }
+  $('#httpIn').addEventListener('input',httpRender);
+  httpRender();
 })();
